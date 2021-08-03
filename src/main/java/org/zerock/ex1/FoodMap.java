@@ -43,11 +43,19 @@ public class FoodMap {
             Scanner inScanner = new Scanner(in);
 
             String msg = inScanner.nextLine();
+
+            String sendmsg = null;
+
+            if(arr == null) {
+                System.out.println("다른 키워드를 입력하세요.\n");
+            }
+
+
             int ranNum = random.nextInt(arr[0].length);
             String[] foodArr = (foodMap.get(msg));
             System.out.println(foodArr[ranNum]);
 
-            String sendMsg = "SERVER : " + foodArr[ranNum];
+            String sendMsg = "SERVER : " + foodArr[ranNum]+"\n";
             OutputStream out = socket.getOutputStream();
 
             out.write(sendMsg.getBytes());
